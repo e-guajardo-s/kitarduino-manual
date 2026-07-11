@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit Arduino · Manual interactivo — Aprende electrónica desde cero</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Manual interactivo para aprender Arduino desde cero: electrónica básica, protoboard, componentes del kit, proyectos guiados y programación. Hecho con cariño para Felipe.">
+  <meta name="author" content="Elías & compañía">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kit Arduino · Manual interactivo">
+  <meta property="og:description" content="Todo lo que necesitas para aprender electrónica, programación y automatización con tu primer kit Arduino.">
+  <meta property="og:locale" content="es_CL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kit Arduino · Manual interactivo">
+  <meta name="twitter:description" content="Aprende electrónica y programación desde cero con tu primer kit Arduino.">
+
+  <!-- Favicon (SVG inline, sin archivos externos) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300979c'/%3E%3Ccircle cx='11' cy='16' r='5.5' fill='none' stroke='white' stroke-width='2.5'/%3E%3Ccircle cx='21' cy='16' r='5.5' fill='none' stroke='white' stroke-width='2.5'/%3E%3Cpath d='M9 16h4M21 14v4M19 16h4' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#inicio" aria-label="Kit Arduino, ir al inicio">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#00979c"/>
+          <circle cx="11" cy="16" r="5.5" fill="none" stroke="#fff" stroke-width="2.5"/>
+          <circle cx="21" cy="16" r="5.5" fill="none" stroke="#fff" stroke-width="2.5"/>
+          <path d="M9 16h4M21 14v4M19 16h4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Kit&nbsp;Arduino
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <a href="#que-es">¿Qué es?</a>
+        <a href="#electronica">Electrónica</a>
+        <a href="#protoboard">Protoboard</a>
+        <a href="#primer-programa">Primer programa</a>
+        <a href="#tinkercad">Simulador</a>
+        <a href="#componentes">Componentes</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#programacion">Programación</a>
+        <a href="#errores">Errores</a>
+        <a href="#recursos">Recursos</a>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="nav-simulator-btn"
+          href="https://www.tinkercad.com/circuits"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Abrir el simulador Tinkercad en una pestaña nueva"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span class="simulator-label">Abrir simulador</span>
+        </a>
+        <button class="icon-btn" id="theme-toggle" aria-label="Cambiar entre modo claro y oscuro">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
+        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-copy">
+          <span class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 9.1 8.6 2 9.3l5.4 4.7L5.8 21 12 17.3 18.2 21l-1.6-7 5.4-4.7-7.1-.7z"/></svg>
+            Un regalo para Felipe · Hecho con cariño
+          </span>
+          <h1>Bienvenido al mundo de <span class="accent">Arduino</span></h1>
+          <p class="hero-sub">Todo lo que necesitas para aprender electrónica, programación y automatización utilizando tu primer kit.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#que-es">
+              Comenzar
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#componentes">Ver componentes</a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>22</strong> componentes en tu kit</div>
+            <div><strong>10+</strong> proyectos guiados</div>
+            <div><strong>0</strong> experiencia necesaria</div>
+          </div>
+        </div>
+
+        <!-- Ilustración: placa Arduino UNO estilizada, con LED parpadeando -->
+        <div class="hero-art float-soft" aria-hidden="true">
+          <svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de una placa Arduino UNO">
+            <defs>
+              <linearGradient id="boardGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#00979c"/>
+                <stop offset="1" stop-color="#006d75"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+              </filter>
+            </defs>
+
+            <!-- Placa -->
+            <g filter="url(#softShadow)">
+              <rect x="60" y="60" width="400" height="280" rx="18" fill="url(#boardGrad)"/>
+              <!-- Muesca de la esquina, como la UNO real -->
+              <circle cx="60" cy="200" r="0" fill="none"/>
+            </g>
+
+            <!-- Puerto USB -->
+            <rect x="38" y="90" width="70" height="52" rx="6" fill="#b8c4cc"/>
+            <rect x="38" y="98" width="60" height="36" rx="4" fill="#8d9aa5"/>
+
+            <!-- Conector de alimentación -->
+            <rect x="38" y="250" width="62" height="46" rx="6" fill="#1b1f24"/>
+            <circle cx="52" cy="273" r="9" fill="#0a0c0e"/>
+
+            <!-- Headers de pines (superior) -->
+            <rect x="150" y="72" width="180" height="24" rx="4" fill="#1b1f24"/>
+            <g fill="#f2b705">
+              <rect x="158" y="79" width="7" height="10" rx="1.5"/><rect x="172" y="79" width="7" height="10" rx="1.5"/>
+              <rect x="186" y="79" width="7" height="10" rx="1.5"/><rect x="200" y="79" width="7" height="10" rx="1.5"/>
+              <rect x="214" y="79" width="7" height="10" rx="1.5"/><rect x="228" y="79" width="7" height="10" rx="1.5"/>
+              <rect x="242" y="79" width="7" height="10" rx="1.5"/><rect x="256" y="79" width="7" height="10" rx="1.5"/>
+              <rect x="270" y="79" width="7" height="10" rx="1.5"/><rect x="284" y="79" width="7" height="10" rx="1.5"/>
+              <rect x="298" y="79" width="7" height="10" rx="1.5"/><rect x="312" y="79" width="7" height="10" rx="1.5"/>
+            </g>
+            <rect x="352" y="72" width="88" height="24" rx="4" fill="#1b1f24"/>
+            <g fill="#f2b705">
+              <rect x="360" y="79" width="7" height="10" rx="1.5"/><rect x="374" y="79" width="7" height="10" rx="1.5"/>
+              <rect x="388" y="79" width="7" height="10" rx="1.5"/><rect x="402" y="79" width="7" height="10" rx="1.5"/>
+              <rect x="416" y="79" width="7" height="10" rx="1.5"/>
+            </g>
+
+            <!-- Headers de pines (inferior) -->
+            <rect x="170" y="304" width="130" height="24" rx="4" fill="#1b1f24"/>
+            <g fill="#f2b705">
+              <rect x="178" y="311" width="7" height="10" rx="1.5"/><rect x="192" y="311" width="7" height="10" rx="1.5"/>
+              <rect x="206" y="311" width="7" height="10" rx="1.5"/><rect x="220" y="311" width="7" height="10" rx="1.5"/>
+              <rect x="234" y="311" width="7" height="10" rx="1.5"/><rect x="248" y="311" width="7" height="10" rx="1.5"/>
+              <rect x="262" y="311" width="7" height="10" rx="1.5"/><rect x="276" y="311" width="7" height="10" rx="1.5"/>
+            </g>
+            <rect x="330" y="304" width="110" height="24" rx="4" fill="#1b1f24"/>
+            <g fill="#f2b705">
+              <rect x="338" y="311" width="7" height="10" rx="1.5"/><rect x="352" y="311" width="7" height="10" rx="1.5"/>
+              <rect x="366" y="311" width="7" height="10" rx="1.5"/><rect x="380" y="311" width="7" height="10" rx="1.5"/>
+              <rect x="394" y="311" width="7" height="10" rx="1.5"/><rect x="408" y="311" width="7" height="10" rx="1.5"/>
+            </g>
+
+            <!-- Microcontrolador ATmega328P -->
+            <rect x="200" y="210" width="170" height="52" rx="6" fill="#1b1f24"/>
+            <g fill="#3a4148">
+              <rect x="206" y="200" width="8" height="10"/><rect x="222" y="200" width="8" height="10"/>
+              <rect x="238" y="200" width="8" height="10"/><rect x="254" y="200" width="8" height="10"/>
+              <rect x="270" y="200" width="8" height="10"/><rect x="286" y="200" width="8" height="10"/>
+              <rect x="302" y="200" width="8" height="10"/><rect x="318" y="200" width="8" height="10"/>
+              <rect x="334" y="200" width="8" height="10"/><rect x="350" y="200" width="8" height="10"/>
+              <rect x="206" y="262" width="8" height="10"/><rect x="222" y="262" width="8" height="10"/>
+              <rect x="238" y="262" width="8" height="10"/><rect x="254" y="262" width="8" height="10"/>
+              <rect x="270" y="262" width="8" height="10"/><rect x="286" y="262" width="8" height="10"/>
+              <rect x="302" y="262" width="8" height="10"/><rect x="318" y="262" width="8" height="10"/>
+              <rect x="334" y="262" width="8" height="10"/><rect x="350" y="262" width="8" height="10"/>
+            </g>
+            <text x="285" y="241" text-anchor="middle" fill="#8d9aa5" font-family="monospace" font-size="13">ATmega328P</text>
+
+            <!-- Cristal oscilador -->
+            <rect x="150" y="160" width="44" height="20" rx="10" fill="#c9d3da"/>
+
+            <!-- Botón reset -->
+            <rect x="400" y="110" width="34" height="34" rx="6" fill="#c9d3da"/>
+            <circle cx="417" cy="127" r="8" fill="#e25555"/>
+
+            <!-- Condensadores -->
+            <circle cx="140" cy="270" r="16" fill="#1b1f24"/>
+            <circle cx="140" cy="270" r="12" fill="#2c3440"/>
+            <circle cx="178" cy="270" r="16" fill="#1b1f24"/>
+            <circle cx="178" cy="270" r="12" fill="#2c3440"/>
+
+            <!-- LED pin 13 (parpadea con CSS) -->
+            <rect x="150" y="120" width="18" height="12" rx="3" fill="#4a5560"/>
+            <rect class="blink-led" x="152" y="122" width="14" height="8" rx="2" fill="#ffd35c"/>
+            <text x="176" y="131" fill="#c2e9eb" font-family="monospace" font-size="11">L</text>
+
+            <!-- LEDs TX/RX -->
+            <rect x="150" y="140" width="12" height="8" rx="2" fill="#6fd396"/>
+            <text x="168" y="148" fill="#c2e9eb" font-family="monospace" font-size="10">TX</text>
+            <rect x="196" y="140" width="12" height="8" rx="2" fill="#f0996f"/>
+            <text x="214" y="148" fill="#c2e9eb" font-family="monospace" font-size="10">RX</text>
+
+            <!-- Serigrafía -->
+            <text x="285" y="185" text-anchor="middle" fill="#e6f6f7" font-family="Inter, sans-serif" font-weight="700" font-size="22" letter-spacing="1">ARDUINO UNO</text>
+            <text x="440" y="90" text-anchor="end" fill="#c2e9eb" font-family="monospace" font-size="10">DIGITAL (PWM ~)</text>
+            <text x="300" y="322" text-anchor="end" fill="#c2e9eb" font-family="monospace" font-size="10" transform="rotate(0)">POWER</text>
+            <text x="440" y="322" text-anchor="end" fill="#c2e9eb" font-family="monospace" font-size="10">ANALOG IN</text>
+
+            <!-- Agujeros de montaje -->
+            <circle cx="82" cy="78" r="6" fill="#0a1120" opacity="0.5"/>
+            <circle cx="440" cy="78" r="6" fill="#0a1120" opacity="0.5"/>
+            <circle cx="82" cy="322" r="6" fill="#0a1120" opacity="0.5"/>
+            <circle cx="440" cy="322" r="6" fill="#0a1120" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECCIONES (se completan en las siguientes etapas) ================= -->
+
+    <section class="section" id="que-es">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Introducción</span>
+          <h2>¿Qué es Arduino?</h2>
+        </div>
+        <div id="que-es-body"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="electronica">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Fundamentos</span>
+          <h2>Conceptos básicos de electrónica</h2>
+        </div>
+        <div id="electronica-body"></div>
+      </div>
+    </section>
+
+    <section class="section" id="protoboard">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Herramientas</span>
+          <h2>Cómo usar un protoboard</h2>
+        </div>
+        <div id="protoboard-body"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="primer-programa">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Manos a la obra</span>
+          <h2>Tu primer programa</h2>
+        </div>
+        <div id="primer-programa-body"></div>
+      </div>
+    </section>
+
+    <section class="section" id="blink">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Tutorial</span>
+          <h2>Blink: el "Hola Mundo" de Arduino</h2>
+        </div>
+        <div id="blink-body"></div>
+      </div>
+    </section>
+
+    <section class="section" id="tinkercad">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Practica sin riesgo</span>
+          <h2>Simula tus circuitos con Tinkercad</h2>
+        </div>
+        <div id="tinkercad-body"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="componentes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Tu kit</span>
+          <h2>Componentes del kit</h2>
+        </div>
+        <div id="componentes-body"></div>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Práctica</span>
+          <h2>Proyectos para principiantes</h2>
+        </div>
+        <div id="proyectos-body"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="programacion">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Código</span>
+          <h2>Aprende programación</h2>
+        </div>
+        <div id="programacion-body"></div>
+      </div>
+    </section>
+
+    <section class="section" id="errores">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Solución de problemas</span>
+          <h2>Errores comunes</h2>
+        </div>
+        <div id="errores-body"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="buenas-practicas">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Nivel pro</span>
+          <h2>Buenas prácticas</h2>
+        </div>
+        <div id="buenas-practicas-body"></div>
+      </div>
+    </section>
+
+    <section class="section" id="recursos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Para seguir aprendiendo</span>
+          <h2>Recursos</h2>
+        </div>
+        <div id="recursos-body"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="mb-0">Hecho con <span class="heart" aria-label="cariño">♥</span> para Felipe · 2026</p>
+      <p class="mb-0">Construido con HTML, CSS y JavaScript puro · Alojado en GitHub Pages</p>
+    </div>
+  </footer>
+
+  <button class="icon-btn to-top" id="to-top" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <script src="js/main.js" type="module"></script>
+</body>
+</html>
