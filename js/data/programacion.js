@@ -103,7 +103,7 @@ String saludo = "Hola " + nombre;   // "Hola Felipe"`,
     digitalWrite(led, HIGH);
     break;
   case 2:
-    tone(buzzer, 1000);
+    miServo.write(90);
     break;
   default:
     // si no es ninguno de los anteriores

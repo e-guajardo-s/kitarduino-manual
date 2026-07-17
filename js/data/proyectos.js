@@ -255,33 +255,34 @@ void loop() {
     id: "detector-movimiento",
     nivel: 3,
     nombre: "Detector de movimiento (alarma)",
-    objetivo: "Sonar el buzzer y encender un LED cuando el PIR detecta movimiento.",
-    materiales: ["Sensor PIR", "Buzzer", "LED", "Resistencia 220Ω", "Cables Dupont"],
-    conexion: "PIR: OUT → pin 2 (VCC → 5V, GND → GND). Buzzer → pin 8. LED → pin 13 (integrado).",
+    objetivo: "Hacer parpadear un LED rojo de alarma cuando el PIR detecta movimiento.",
+    materiales: ["Sensor PIR", "LED rojo", "Resistencia 220Ω", "Protoboard", "Cables Dupont"],
+    conexion: "PIR: OUT → pin 2 (VCC → 5V, GND → GND). LED: pin 8 → resistencia 220Ω → ánodo; cátodo → GND.",
     codigo: `const int pir = 2;
-const int buzzer = 8;
+const int ledAlarma = 8;
 
 void setup() {
   pinMode(pir, INPUT);
-  pinMode(buzzer, OUTPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(ledAlarma, OUTPUT);
 }
 
 void loop() {
   if (digitalRead(pir) == HIGH) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    tone(buzzer, 1000);
+    // Parpadeo rápido: modo alarma.
+    digitalWrite(ledAlarma, HIGH);
+    delay(100);
+    digitalWrite(ledAlarma, LOW);
+    delay(100);
   } else {
-    digitalWrite(LED_BUILTIN, LOW);
-    noTone(buzzer);
+    digitalWrite(ledAlarma, LOW);
   }
 }`,
     explicacion: [
       "El PIR necesita entre 30 y 60 segundos de calentamiento al encenderse; no confíes en la primera lectura.",
-      "Al detectar movimiento (HIGH), se enciende el LED y suena el buzzer con tone().",
-      "Sin movimiento, todo vuelve a apagarse con noTone() y digitalWrite LOW.",
+      "Al detectar movimiento (HIGH), el LED parpadea rápido en 'modo alarma'.",
+      "Sin movimiento, el LED queda apagado.",
     ],
-    resultado: "Alarma sonora y visual que se activa apenas detecta movimiento cerca del sensor.",
+    resultado: "Alarma visual que parpadea apenas detecta movimiento cerca del sensor.",
   },
   {
     id: "sistema-riego",

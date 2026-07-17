@@ -95,7 +95,9 @@ export function closeModal() {
   bodyEl.innerHTML = "";
 
   if (lastFocused && typeof lastFocused.focus === "function") {
-    lastFocused.focus();
+    // preventScroll: al cerrar navegando a otra sección, devolver el foco no debe
+    // arrastrar la página de vuelta a la tarjeta que abrió el modal.
+    lastFocused.focus({ preventScroll: true });
   }
   lastFocused = null;
 }

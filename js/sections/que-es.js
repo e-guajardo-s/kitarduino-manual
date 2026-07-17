@@ -99,7 +99,7 @@ export function renderQueEs(mount) {
           <li>LED</li>
           <li>Motor servo</li>
           <li>Pantalla LCD</li>
-          <li>Buzzer</li>
+          <li>Relé</li>
         </ul>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { COMPONENTES, CATEGORIAS } from "../data/componentes.js";
 import { codeBlock } from "../components/code-block.js";
-import { openModal } from "../components/modal.js";
+import { openModal, closeModal } from "../components/modal.js";
 
 const DIFICULTAD_LABEL = { facil: "Fácil", medio: "Medio", dificil: "Difícil" };
 
@@ -10,7 +10,7 @@ const YT_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 function componentCard(c) {
   return `
     <article class="card component-card" data-id="${c.id}" data-nombre="${c.nombre.toLowerCase()}" data-uso="${c.paraQueSirve.toLowerCase()}" data-categoria="${c.categoria}" tabindex="0" role="button" aria-haspopup="dialog">
-      <div class="component-card__icon">${c.icono}</div>
+      <div class="component-card__icon"><img src="${c.imagen}" alt="${c.nombre}" loading="lazy"></div>
       <h3>${c.nombre}</h3>
       <p>${c.descripcionCorta}</p>
       <div class="component-card__meta">
@@ -45,7 +45,7 @@ function componentModalContent(c) {
   return `
     <div class="component-modal">
       <div class="component-modal__head">
-        <div class="component-modal__icon">${c.icono}</div>
+        <div class="component-modal__icon"><img src="${c.imagen}" alt="${c.nombre}" loading="lazy"></div>
         <div>
           <h2 id="${titleId}">${c.nombre}</h2>
           <div class="component-modal__badges">
@@ -58,7 +58,7 @@ function componentModalContent(c) {
       <h3>Descripción</h3>
       <p>${c.detalle}</p>
 
-      ${c.enlaceSeccion ? `<p><a href="${c.enlaceSeccion}">Ver la sección completa dedicada a este tema →</a></p>` : ""}
+      ${c.enlaceSeccion ? `<p><a class="component-modal__section-link" href="${c.enlaceSeccion}">Ver la sección completa dedicada a este tema →</a></p>` : ""}
 
       ${c.pinout && c.pinout.length ? `<h3>Pinout</h3>${pinoutTable(c.pinout)}` : ""}
 
@@ -144,6 +144,12 @@ function initCardClicks(root) {
       const c = COMPONENTES.find((item) => item.id === card.dataset.id);
       if (!c) return;
       openModal(componentModalContent(c), { labelledBy: `modal-title-${c.id}` });
+
+      // El enlace a otra sección navega fuera del modal: hay que cerrarlo, o el
+      // backdrop y el scroll bloqueado tapan la sección de destino.
+      document
+        .querySelector(".modal__body .component-modal__section-link")
+        ?.addEventListener("click", closeModal);
     };
 
     card.addEventListener("click", open);
@@ -160,7 +166,7 @@ export function renderComponentes(mount) {
   mount.innerHTML = `
     <div class="reveal">
       <p>
-        Tu kit trae <strong>22 componentes</strong>: desde lo más básico (LEDs, resistencias) hasta
+        Tu kit trae <strong>19 componentes</strong>: desde lo más básico (LEDs, resistencias) hasta
         sensores y pantallas. Aquí tienes una ficha de cada uno. Haz click en cualquier tarjeta para
         ver el detalle completo: pinout, conexión, código y consejos.
       </p>

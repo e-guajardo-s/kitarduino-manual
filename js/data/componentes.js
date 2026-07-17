@@ -1,5 +1,5 @@
 /* ============================================================
-   Los 22 componentes del kit — datos técnicos verificados.
+   Los 19 componentes del kit — datos técnicos verificados.
    categoria: "basico" | "sensor" | "actuador" | "pantalla"
    dificultad: "facil" | "medio" | "dificil"
    ============================================================ */
@@ -11,37 +11,12 @@ function yt(titulo, query) {
   };
 }
 
-const ICONS = {
-  placa: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M6 4V2M10 4V2M14 4V2M18 4V2M6 22v-2M10 22v-2M14 22v-2M18 22v-2"/><circle cx="17" cy="11" r="1.5" fill="currentColor"/></svg>`,
-  usb: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="1.5"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="15" r="2"/><path d="M12 5.5V13M12 13 6 17M12 13l6 0"/></svg>`,
-  protoboard: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 9v0M9 9v0M12 9v0M15 9v0M18 9v0M6 12v0M9 12v0M12 12v0M15 12v0M18 12v0M6 15v0M9 15v0M12 15v0M15 15v0M18 15v0" stroke-width="2.5"/></svg>`,
-  led: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6l3 8a6 6 0 0 1-12 0Z"/><path d="M9 18v2M15 18v2M9 22h6"/></svg>`,
-  resistencia: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l1.5-4 3 8 3-8 3 8 1.5-4H22"/></svg>`,
-  servo: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="12" height="10" rx="2"/><path d="M10 8V5a2 2 0 0 1 2-2 2 2 0 0 1 2 2"/><path d="M16 12h4l2-3M16 12l2 3"/></svg>`,
-  termometro: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4a2 2 0 0 0-4 0v10.5a4 4 0 1 0 4 0Z"/></svg>`,
-  lcd: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 10h5M6 14h8"/></svg>`,
-  rele: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 9v6M8 9l5 3-5 3M16 8v8"/></svg>`,
-  planta: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 9 4 4 4c0 5 3 8 8 8Z"/><path d="M12 12c0-4 3-6 8-6 0 4-3 6-8 6Z"/></svg>`,
-  movimiento: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4 3 14h6l-1 6 11-13h-6z"/></svg>`,
-  touch: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12V6a2 2 0 0 1 4 0v5"/><path d="M13 6a2 2 0 0 1 4 0v6"/><path d="M17 8a2 2 0 0 1 3 1.7v4.8a6 6 0 0 1-6 6H11a6 6 0 0 1-5-2.7L4 15"/></svg>`,
-  ultrasonico: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/><path d="M2 12a10 10 0 0 1 4-8M22 12a10 10 0 0 0-4-8"/></svg>`,
-  switch: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="6"/><circle cx="12" cy="8" r="2.5" fill="currentColor"/></svg>`,
-  oled: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1"/><circle cx="8" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/><circle cx="16" cy="12" r="1.4" fill="currentColor"/></svg>`,
-  obstaculo: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-4 4 8 2-4h6"/></svg>`,
-  digitos4: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="1"/><path d="M7 9v6M11 9v6M14 9v6M18 9v6" opacity="0.6"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>`,
-  matriz: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="6" r="1" fill="currentColor"/><circle cx="12" cy="6" r="1" fill="currentColor"/><circle cx="18" cy="6" r="1" fill="currentColor"/><circle cx="6" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="18" cy="12" r="1" fill="currentColor"/><circle cx="6" cy="18" r="1" fill="currentColor"/><circle cx="12" cy="18" r="1" fill="currentColor"/><circle cx="18" cy="18" r="1" fill="currentColor"/></svg>`,
-  joystick: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14" r="7"/><circle cx="12" cy="8" r="3" fill="currentColor"/></svg>`,
-  buzzer: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><path d="M9 9.5v5M15 9.5v5M12 7v10" opacity="0.5"/></svg>`,
-  segmento7: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8M8 3v9M16 3v9M8 12h8M8 12v9M16 12v9M8 21h8"/></svg>`,
-  cables: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4"/><circle cx="4" cy="3" r="1.4" fill="currentColor"/><circle cx="20" cy="3" r="1.4" fill="currentColor"/><path d="M12 14v7"/></svg>`,
-};
-
 export const COMPONENTES = [
   {
     id: "arduino-uno",
     nombre: "Arduino UNO R3",
     categoria: "basico",
-    icono: ICONS.placa,
+    imagen: "assets/images/arduino_uno_r3.jpg",
     descripcionCorta: "El cerebro de todo tu kit.",
     paraQueSirve: "Ejecuta tu código y coordina sensores y actuadores.",
     comoFunciona: "Un microcontrolador ATmega328P lee entradas, decide según tu programa y controla salidas.",
@@ -79,7 +54,7 @@ export const COMPONENTES = [
     id: "cable-usb",
     nombre: "Cable USB",
     categoria: "basico",
-    icono: ICONS.usb,
+    imagen: "assets/images/usb_cable_type_a_to_b.jpg",
     descripcionCorta: "Alimenta y programa la placa.",
     paraQueSirve: "Conecta el Arduino al computador para subir sketches y darle energía.",
     comoFunciona: "Lleva datos y 5V por el mismo cable (tipo A a tipo B).",
@@ -109,7 +84,7 @@ export const COMPONENTES = [
     id: "protoboard",
     nombre: "Protoboard (breadboard)",
     categoria: "basico",
-    icono: ICONS.protoboard,
+    imagen: "assets/images/protoboard_170_points.jpg",
     descripcionCorta: "Arma circuitos sin soldar.",
     paraQueSirve: "Base de prototipado donde insertas componentes y cables a presión.",
     comoFunciona: "Filas de contactos metálicos conectan los agujeros por grupos.",
@@ -134,7 +109,7 @@ export const COMPONENTES = [
     id: "led",
     nombre: "LEDs",
     categoria: "basico",
-    icono: ICONS.led,
+    imagen: "assets/images/arduino_leds_set.jpg",
     descripcionCorta: "Luz que enciendes con código.",
     paraQueSirve: "Indicadores luminosos de colores.",
     comoFunciona: "Un diodo que emite luz cuando la corriente pasa en el sentido correcto; siempre con resistencia.",
@@ -186,7 +161,7 @@ void loop() {
     id: "resistencias",
     nombre: "Resistencias",
     categoria: "basico",
-    icono: ICONS.resistencia,
+    imagen: "assets/images/resistors_set.jpg",
     descripcionCorta: "Protegen limitando la corriente.",
     paraQueSirve: "Reducen la corriente para no quemar componentes.",
     comoFunciona: "Oponen resistencia (Ω) al paso de electrones (ver Ley de Ohm).",
@@ -210,7 +185,7 @@ void loop() {
     id: "servo-sg90",
     nombre: "Servo SG90",
     categoria: "actuador",
-    icono: ICONS.servo,
+    imagen: "assets/images/servo_motor_sg90.jpg",
     descripcionCorta: "Motor que gira a un ángulo exacto.",
     paraQueSirve: "Mueve brazos, compuertas o el 'cuello' de un radar.",
     comoFunciona: "Recibe una señal PWM y posiciona su eje entre 0° y 180°.",
@@ -267,7 +242,7 @@ void loop() {
     id: "dht11",
     nombre: "Sensor DHT11",
     categoria: "sensor",
-    icono: ICONS.termometro,
+    imagen: "assets/images/dht11_temp_humidity_sensor.jpg",
     descripcionCorta: "Mide temperatura y humedad.",
     paraQueSirve: "Informa el clima del ambiente.",
     comoFunciona: "Un termistor y un sensor de humedad envían los datos en digital por un pin.",
@@ -331,7 +306,7 @@ void loop() {
     id: "lcd-1602",
     nombre: "Pantalla LCD 1602 I2C",
     categoria: "pantalla",
-    icono: ICONS.lcd,
+    imagen: "assets/images/lcd_1602_i2c_display.jpg",
     descripcionCorta: "Muestra 2 líneas de 16 caracteres.",
     paraQueSirve: "Despliega texto y datos sin necesitar el computador.",
     comoFunciona: "Un chip I2C (dirección 0x27/0x3F) controla la pantalla con solo 2 cables de datos.",
@@ -382,7 +357,7 @@ void loop() {
     id: "rele",
     nombre: "Módulo Relé (Relay)",
     categoria: "actuador",
-    icono: ICONS.rele,
+    imagen: "assets/images/relay.png",
     descripcionCorta: "Un interruptor que controla el código.",
     paraQueSirve: "Enciende cargas de mayor voltaje (ampolletas, ventiladores).",
     comoFunciona: "Una bobina mueve un contacto mecánico; aísla el Arduino de la carga.",
@@ -432,7 +407,7 @@ void loop() {
     id: "humedad-suelo",
     nombre: "Sensor de humedad de suelo",
     categoria: "sensor",
-    icono: ICONS.planta,
+    imagen: "assets/images/soil_moisture_sensor.jpg",
     descripcionCorta: "Sabe si la tierra está seca.",
     paraQueSirve: "Mide cuánta agua tiene la tierra.",
     comoFunciona: "Dos electrodos miden la conductividad del suelo; más agua = más conductividad.",
@@ -477,7 +452,7 @@ void loop() {
     id: "pir",
     nombre: "Sensor de movimiento PIR",
     categoria: "sensor",
-    icono: ICONS.movimiento,
+    imagen: "assets/images/pir_motion_sensor.jpg",
     descripcionCorta: "Detecta que alguien se mueve.",
     paraQueSirve: "Dispara una acción ante movimiento.",
     comoFunciona: "Capta los cambios de calor (infrarrojo) de un cuerpo que se mueve.",
@@ -528,7 +503,7 @@ void loop() {
     id: "touch",
     nombre: "Sensor táctil (Touch)",
     categoria: "sensor",
-    icono: ICONS.touch,
+    imagen: "assets/images/capacitive_touch_sensor.jpg",
     descripcionCorta: "Un botón sin partes móviles.",
     paraQueSirve: "Reemplaza un pulsador con un toque.",
     comoFunciona: "Detecta el cambio de capacitancia de tu dedo (tecnología capacitiva).",
@@ -573,7 +548,7 @@ void loop() {
     id: "hc-sr04",
     nombre: "Sensor ultrasónico HC-SR04",
     categoria: "sensor",
-    icono: ICONS.ultrasonico,
+    imagen: "assets/images/ultrasonic_sensor_hc_sr04.jpg",
     descripcionCorta: "Mide distancia con eco.",
     paraQueSirve: "Calcula qué tan lejos está un objeto.",
     comoFunciona: "Emite un ultrasonido y cronometra cuánto tarda el eco en volver.",
@@ -631,34 +606,10 @@ void loop() {
     youtube: [yt("HC-SR04: medir distancia con Arduino", "arduino hc-sr04 ultrasonico distancia tutorial español")],
   },
   {
-    id: "rocker-switch",
-    nombre: "Interruptor basculante (Rocker Switch)",
-    categoria: "basico",
-    icono: ICONS.switch,
-    descripcionCorta: "Enciende y apaga a lo físico.",
-    paraQueSirve: "Corta o permite el paso de corriente.",
-    comoFunciona: "Un contacto mecánico que se queda en la posición que lo dejas.",
-    voltaje: "—",
-    pines: "2–3 terminales",
-    dificultad: "facil",
-    usosReales: ["Encender/apagar un proyecto", "Interruptor general"],
-    detalle:
-      "Un interruptor mecánico simple, del tipo 'balancín', que se queda encendido o apagado según la última posición en la que lo dejaste. A diferencia de un botón, no vuelve solo a su posición.",
-    pinout: [],
-    conexion: "Se conecta en serie con la línea de alimentación, para cortar toda la energía del proyecto.",
-    codigo: null,
-    codigoExplicacion: [],
-    erroresComunes: ["Confundirlo con un pulsador (el rocker se queda en la posición, no vuelve solo)."],
-    consejos: ["Úsalo como interruptor general de encendido de tu proyecto, no como botón de un solo toque."],
-    proyectos: ["Interruptor general de cualquier proyecto"],
-    variaciones: "Interruptores con luz indicadora integrada, interruptores de palanca.",
-    youtube: [yt("Cómo funciona un interruptor basculante", "interruptor basculante como funciona")],
-  },
-  {
     id: "oled-096",
     nombre: "Pantalla OLED 0.96\"",
     categoria: "pantalla",
-    icono: ICONS.oled,
+    imagen: "assets/images/oled_display_0_96_i2c.jpg",
     descripcionCorta: "Pantalla nítida de 128×64.",
     paraQueSirve: "Muestra texto, íconos y gráficos.",
     comoFunciona: "Cada píxel emite su propia luz (no necesita retroiluminación); se controla por I2C.",
@@ -712,7 +663,7 @@ void loop() {
     id: "obstaculo-ir",
     nombre: "Sensor de obstáculos (IR)",
     categoria: "sensor",
-    icono: ICONS.obstaculo,
+    imagen: "assets/images/ir_obstacle_avoidance_sensor.jpg",
     descripcionCorta: "Ve si hay algo enfrente.",
     paraQueSirve: "Detecta objetos cercanos sin tocarlos.",
     comoFunciona: "Un LED infrarrojo emite luz y un receptor mide cuánta rebota.",
@@ -754,106 +705,85 @@ void loop() {
     youtube: [yt("Sensor de obstáculos infrarrojo con Arduino", "arduino sensor obstaculo infrarrojo tutorial español")],
   },
   {
-    id: "display-4-digitos",
-    nombre: "Display de 4 dígitos",
-    categoria: "pantalla",
-    icono: ICONS.digitos4,
-    descripcionCorta: "Muestra números de 4 cifras.",
-    paraQueSirve: "Ideal para relojes y contadores.",
-    comoFunciona: "Un chip TM1637 controla los 4 dígitos de 7 segmentos con solo 2 pines.",
-    voltaje: "5V",
-    pines: "VCC, GND, CLK, DIO",
-    dificultad: "medio",
-    usosReales: ["Reloj", "Cronómetro", "Marcador"],
-    detalle:
-      "Este módulo agrupa 4 displays de 7 segmentos (más los dos puntos del medio, útiles para relojes) y los controla con el chip TM1637, que solo necesita 2 pines de datos además de alimentación.",
-    pinout: [
-      { pin: "VCC", descripcion: "Alimentación 5V" },
-      { pin: "GND", descripcion: "Tierra" },
-      { pin: "CLK", descripcion: "Reloj de datos" },
-      { pin: "DIO", descripcion: "Datos" },
-    ],
-    conexion: "VCC → 5V; GND → GND; CLK → pin 2; DIO → pin 3.",
-    codigo: `#include <TM1637Display.h>
-
-TM1637Display display(2, 3);   // CLK, DIO
-
-void setup() {
-  display.setBrightness(5);
-  display.showNumberDec(1234);
-}
-
-void loop() {
-}`,
-    codigoExplicacion: [
-      "TM1637Display display(2, 3); → Crea el objeto display indicando los pines CLK y DIO.",
-      "display.setBrightness(5); → Ajusta el brillo (0 a 7).",
-      "display.showNumberDec(1234); → Muestra el número 1234 en los 4 dígitos.",
-    ],
-    erroresComunes: ["No instalar la librería TM1637Display.", "Confundir CLK con DIO."],
-    consejos: ["Usa showNumberDecEx() si quieres controlar los dos puntos centrales para un reloj."],
-    proyectos: ["Reloj", "Cronómetro", "Marcador"],
-    variaciones: "Displays de 6 dígitos, displays con puntos decimales independientes.",
-    youtube: [yt("Display TM1637 de 4 dígitos con Arduino", "arduino tm1637 display 4 digitos tutorial español")],
-  },
-  {
     id: "matriz-8x8",
     nombre: "Matriz de puntos 8×8 (Dot Matrix)",
     categoria: "pantalla",
-    icono: ICONS.matriz,
+    imagen: "assets/images/matriz.png",
     descripcionCorta: "64 LEDs para dibujar.",
     paraQueSirve: "Muestra letras, íconos y animaciones.",
-    comoFunciona: "Un chip MAX7219 enciende los LEDs en filas/columnas por multiplexado.",
-    voltaje: "5V",
-    pines: "VCC, GND, DIN, CS, CLK",
+    comoFunciona: "Es una rejilla de 64 LEDs con 16 patas (8 filas y 8 columnas); cada punto se enciende activando su fila y su columna.",
+    voltaje: "~2V por LED (con resistencias)",
+    pines: "8 filas + 8 columnas (16 patas)",
     dificultad: "dificil",
     usosReales: ["Letreros", "Caritas", "Mini-animaciones"],
     detalle:
-      "Esta matriz tiene 64 LEDs (8×8) controlados por el chip MAX7219, que los enciende fila por fila muy rápido (multiplexado) dando la ilusión de que todos están encendidos a la vez. Es el componente más avanzado del kit: requiere entender coordenadas x/y.",
+      "Esta matriz es el componente 'crudo': 64 LEDs organizados en 8 filas y 8 columnas, con 16 patas y SIN ningún chip controlador ni PCB. Para encender el LED de una fila y una columna, se ponen su fila y su columna en niveles opuestos. Como el Arduino no puede manejar los 64 LEDs a la vez, se 'multiplexan': se enciende una columna a la vez a gran velocidad y el ojo percibe la imagen completa. Cada línea necesita una resistencia para limitar la corriente. Es el componente más avanzado del kit.",
     pinout: [
-      { pin: "VCC", descripcion: "Alimentación 5V" },
-      { pin: "GND", descripcion: "Tierra" },
-      { pin: "DIN", descripcion: "Datos de entrada" },
-      { pin: "CS", descripcion: "Selección de chip" },
-      { pin: "CLK", descripcion: "Reloj de datos" },
+      { pin: "Filas (8)", descripcion: "Ánodos (+): una pata por fila, a un pin digital" },
+      { pin: "Columnas (8)", descripcion: "Cátodos (−): una pata por columna, cada una con su resistencia" },
     ],
-    conexion: "VCC → 5V; GND → GND; DIN → pin 11; CS → pin 10; CLK → pin 13.",
-    codigo: `#include <LedControl.h>
+    conexion:
+      "Las 16 patas van cada una a un pin del Arduino: 8 filas (ánodos) directas y 8 columnas (cátodos) cada una con su resistencia de 220Ω (o al revés según el modelo). El orden de las patas NO es secuencial: guíate por el datasheet de tu matriz para saber cuál es cada fila y cada columna. En el ejemplo: filas → pines 2–9; columnas → 10, 11, 12, 13, A0, A1, A2, A3.",
+    codigo: `// Matriz 8x8 "cruda" (sin chip): multiplexado por columnas.
+// filas = ánodos (+); columnas = cátodos (−, con resistencia cada una).
+const int filas[8]    = {2, 3, 4, 5, 6, 7, 8, 9};
+const int columnas[8] = {10, 11, 12, 13, A0, A1, A2, A3};
 
-LedControl lc = LedControl(11, 13, 10, 1);  // DIN, CLK, CS, #dispositivos
+// Cada byte es una fila; cada bit en 1 enciende ese punto (una carita).
+byte imagen[8] = {
+  0b00111100,
+  0b01000010,
+  0b10100101,
+  0b10000001,
+  0b10100101,
+  0b10011001,
+  0b01000010,
+  0b00111100,
+};
 
 void setup() {
-  lc.shutdown(0, false);
-  lc.setIntensity(0, 8);
-  lc.clearDisplay(0);
   for (int i = 0; i < 8; i++) {
-    lc.setLed(0, i, i, true);   // enciende una diagonal
+    pinMode(filas[i], OUTPUT);
+    pinMode(columnas[i], OUTPUT);
+    digitalWrite(columnas[i], HIGH);  // HIGH = columna apagada
   }
 }
 
 void loop() {
+  for (int c = 0; c < 8; c++) {          // recorre columna por columna
+    for (int f = 0; f < 8; f++) {
+      digitalWrite(filas[f], bitRead(imagen[f], 7 - c));
+    }
+    digitalWrite(columnas[c], LOW);      // enciende esta columna
+    delay(2);
+    digitalWrite(columnas[c], HIGH);     // la apaga antes de la siguiente
+  }
 }`,
     codigoExplicacion: [
-      "LedControl lc = LedControl(11, 13, 10, 1); → Configura los pines y que hay 1 matriz conectada.",
-      "lc.shutdown(0, false); → Saca la matriz 0 del modo de ahorro de energía.",
-      "lc.setIntensity(0, 8); → Ajusta el brillo (0 a 15).",
-      "lc.setLed(0, fila, columna, true); → Enciende un LED específico.",
+      "filas[] y columnas[] → los 16 pines del Arduino: 8 para las filas (ánodos) y 8 para las columnas (cátodos).",
+      "imagen[] → 8 bytes, uno por fila; cada bit en 1 es un LED encendido.",
+      "bitRead(imagen[f], 7 - c) → saca el bit de la columna c dentro de la fila f.",
+      "Se enciende una columna a la vez (LOW) muy rápido; el ojo ve la imagen completa: eso es multiplexar.",
+      "delay(2) → cada columna brilla ~2 ms; con menos parpadea, con mucho más se nota el barrido.",
     ],
     erroresComunes: [
-      "No instalar la librería LedControl.",
-      "Confundir DIN, CS y CLK entre sí.",
-      "Olvidar lc.shutdown(0, false) (la matriz queda apagada).",
+      "No poner una resistencia por columna (los LEDs reciben demasiada corriente y se dañan).",
+      "Equivocar qué pata es cada fila y cada columna: en la matriz cruda el orden de los pines NO es secuencial (usa el datasheet).",
+      "Barrido con delay muy largo (se ve el parpadeo) o dejar dos columnas encendidas a la vez (aparecen 'fantasmas').",
     ],
-    consejos: ["Empieza encendiendo LEDs individuales antes de intentar dibujar letras completas."],
+    consejos: [
+      "Primero enciende UN solo LED (una fila en HIGH y una columna en LOW) para ubicar bien las patas.",
+      "Dibuja tu figura en una cuadrícula de 8×8 en papel y tradúcela a los 8 bytes.",
+    ],
     proyectos: ["Letrero animado", "Caritas", "Mini-animaciones"],
-    variaciones: "Matrices RGB, cadenas de varias matrices MAX7219 en serie.",
-    youtube: [yt("Matriz LED 8x8 MAX7219 con Arduino", "arduino matriz led max7219 tutorial español")],
+    variaciones: "Existe la versión en módulo con chip MAX7219, que se controla con solo 3 pines de datos (sin cablear las 16 patas); también hay matrices RGB y cadenas de varias matrices.",
+    youtube: [yt("Matriz LED 8x8 sin módulo (multiplexado) con Arduino", "arduino matriz led 8x8 multiplexado sin modulo tutorial español")],
   },
   {
     id: "joystick",
     nombre: "Joystick",
     categoria: "sensor",
-    icono: ICONS.joystick,
+    imagen: "assets/images/analog_joystick_module.jpg",
     descripcionCorta: "Como el de un control de videojuegos.",
     paraQueSirve: "Entrega dirección en 2 ejes + un botón.",
     comoFunciona: "Dos potenciómetros miden X e Y (0–1023) y un pulsador da el clic.",
@@ -895,55 +825,10 @@ void loop() {
     youtube: [yt("Joystick con Arduino", "arduino joystick tutorial español")],
   },
   {
-    id: "buzzer",
-    nombre: "Buzzer",
-    categoria: "actuador",
-    icono: ICONS.buzzer,
-    descripcionCorta: "Hace sonidos y melodías.",
-    paraQueSirve: "Emite pitidos y tonos.",
-    comoFunciona: "Una lámina piezoeléctrica vibra a la frecuencia que le indiques con tone().",
-    voltaje: "5V",
-    pines: "+ (señal), − (GND)",
-    dificultad: "facil",
-    usosReales: ["Alarmas", "Avisos", "Melodías simples"],
-    detalle:
-      "El buzzer piezoeléctrico produce sonido al vibrar. Con la función tone() le indicas la frecuencia (en hertz): más alta = más agudo. Sirve para alarmas y melodías simples.",
-    pinout: [
-      { pin: "+", descripcion: "Señal (a un pin digital)" },
-      { pin: "−", descripcion: "GND" },
-    ],
-    conexion: "Pin 8 → '+' del buzzer; '−' del buzzer → GND.",
-    codigo: `const int buzzer = 8;
-
-void setup() {
-  pinMode(buzzer, OUTPUT);
-}
-
-void loop() {
-  tone(buzzer, 1000);  // Suena a 1000 Hz.
-  delay(500);
-  noTone(buzzer);      // Silencio.
-  delay(500);
-}`,
-    codigoExplicacion: [
-      "tone(pin, frecuencia); → Genera el sonido a esa frecuencia en Hz.",
-      "noTone(pin); → Detiene el sonido.",
-    ],
-    erroresComunes: [
-      "Confundir buzzer activo (suena solo con HIGH) con pasivo (necesita tone()).",
-      "Polaridad invertida.",
-      "Usar un delay muy corto (no se alcanza a oír).",
-    ],
-    consejos: ["Para melodías, define las frecuencias de las notas (DO=262, RE=294, MI=330…).", "El buzzer no necesita resistencia."],
-    proyectos: ["Alarma con PIR", "Avisos de la estación meteorológica", "Melodía de inicio"],
-    variaciones: "Buzzer activo vs pasivo, parlantes pequeños.",
-    youtube: [yt("Buzzer y tone() en Arduino", "arduino buzzer tone melodia tutorial español")],
-  },
-  {
     id: "display-7-segmentos",
     nombre: "Display de 7 segmentos",
     categoria: "pantalla",
-    icono: ICONS.segmento7,
+    imagen: "assets/images/7seg.jpg",
     descripcionCorta: "Un dígito grande y brillante.",
     paraQueSirve: "Muestra un número (0–9) o letra simple.",
     comoFunciona: "Siete LEDs en forma de '8' se encienden en combinación para formar cada cifra.",
@@ -989,23 +874,23 @@ void loop() {
     id: "cables-dupont",
     nombre: "Cables Dupont",
     categoria: "basico",
-    icono: ICONS.cables,
+    imagen: "assets/images/dupont_cables_m_m.jpg",
     descripcionCorta: "Los 'cables saltadores'.",
     paraQueSirve: "Conectan todo entre placa, protoboard y sensores.",
     comoFunciona: "Puntas macho/hembra que entran a presión en los headers y la protoboard.",
     voltaje: "—",
-    pines: "M-M, M-H, H-H",
+    pines: "M-M, M-H",
     dificultad: "facil",
     usosReales: ["Absolutamente todos los proyectos"],
     detalle:
-      "Los cables Dupont vienen en tres variantes según sus puntas: macho-macho (M-M), macho-hembra (M-H) y hembra-hembra (H-H). Se usan para conectar el Arduino, la protoboard y los módulos sensores entre sí sin soldar.",
+      "Los cables Dupont vienen en dos variantes según sus puntas: macho-macho (M-M) y macho-hembra (M-H). Se usan para conectar el Arduino, la protoboard y los módulos sensores entre sí sin soldar.",
     pinout: [],
     conexion:
-      "Macho-Macho (M-M): entre dos agujeros de protoboard. Macho-Hembra (M-H): de un pin del Arduino a un módulo con headers macho. Hembra-Hembra (H-H): entre dos pines/headers macho.",
+      "Macho-Macho (M-M): entre dos agujeros de protoboard. Macho-Hembra (M-H): de un pin del Arduino a un módulo con headers macho.",
     codigo: null,
     codigoExplicacion: [],
     erroresComunes: ["Usar el tipo de punta equivocado para la conexión que necesitas."],
-    consejos: ["Ten variedad de los tres tipos: casi todos los proyectos del kit usan al menos dos."],
+    consejos: ["Ten ambos tipos a mano: casi todos los proyectos del kit usan tanto M-M como M-H."],
     proyectos: ["Todos los proyectos"],
     variaciones: "Cables planos (ribbon cable), cables de colores para organizar por función.",
     youtube: [yt("Cables Dupont: para qué sirve cada tipo", "cables dupont jumper para que sirven")],

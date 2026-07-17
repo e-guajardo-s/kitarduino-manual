@@ -75,8 +75,8 @@ void loop() {
       "Si <code>loop()</code> se hace largo, pártelo en <strong>funciones con nombre claro</strong>. Cada función hace una cosa. Así <code>loop()</code> se lee como un resumen y encuentras los errores más rápido.",
     antes: `void loop() {
   int d = pulseIn(echoPin, HIGH) * 0.0343 / 2;
-  if (d < 20) { tone(buzzer, 1000); }
-  else { noTone(buzzer); }
+  if (d < 20) { digitalWrite(ledAlerta, HIGH); }
+  else { digitalWrite(ledAlerta, LOW); }
   // ...20 líneas más mezcladas...
 }`,
     despues: `void loop() {
@@ -89,8 +89,7 @@ float medirDistancia() {
 }
 
 void avisarSiCerca(float d) {
-  if (d < 20) tone(buzzer, 1000);
-  else noTone(buzzer);
+  digitalWrite(ledAlerta, d < 20 ? HIGH : LOW);
 }`,
   },
 ];
